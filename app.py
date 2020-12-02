@@ -200,12 +200,13 @@ if uploaded_file != None:
             adversarial_{image} =  \sin(\triangledown_{input} J(0,input,y_{true}))
              ''')
             col.write("""The attack you just implemented is known as the FGSM attack.
-             This attack firt introduced by Ian Goodfellow uses the optimized gradients
-             of the nerual networks output to maximize loss between the target class and the
-             predicted class. The attack optimizes on the L_infity metric between the
-             input image and the adversarial image. The L-Infinity distance judges the
-             pixel with the largest amount of change. This attack takes "steps"
-             (Cough Cough Gradient Descent Sound familiar?) to figure out which direction
-             creates the most loss. In this way were not actually targeting any particular
-             label but instead ensuring that the model doesnt predict the true label. """)
+             This attack first introduced by Ian Goodfellow uses the optimized gradients
+             of the nerual networks output (the processed image tensor) to maximize loss
+             between the target class and the predicted class. The attack optimizes on 
+             the L_infity metric between the input image and the adversarial image. 
+             The L-Infinity distance judges the pixel with the largest amount of change. 
+             This attack takes "steps" (Cough Cough Gradient Descent Sound familiar?) 
+             to figure out which direction creates the most loss. In this way were not 
+             actually targeting any particular label but instead ensuring that the model 
+             doesnt predict the true label. """)
             col.write("https://www.mdpi.com/2079-9292/9/8/1284/htm")
