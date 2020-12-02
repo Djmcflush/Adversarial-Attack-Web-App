@@ -156,7 +156,7 @@ if uploaded_file != None:
     
         
     temp = Image.fromarray(np.uint8(im)*255)
-    temp = temp.resize(size=original_size,resample=PIL.Image.BICUBIC)
+    temp = temp.resize(size=origial_size,resample=PIL.Image.BICUBIC)
     #temp = cv2.resize(im, dsize=origial_size, interpolation=cv2.INTER_CUBIC)
     #temp = np.clip(temp, 0, 1)
     col3.image(temp, caption='Adversarial Image.', use_column_width=True)
