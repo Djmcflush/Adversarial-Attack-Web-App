@@ -11,6 +11,7 @@ import random
 import torch.nn.functional as F
 from torch.autograd import Variable
 import numpy as np
+import cv2
 
 mean=[0.485, 0.456, 0.406]
 std=[0.229, 0.224, 0.225]
