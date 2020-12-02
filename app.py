@@ -156,10 +156,9 @@ if uploaded_file != None:
     first_idx = idx
     
         
-    temp = Image.fromarray(np.uint8(im)*255)
-    temp = temp.resize(size=origial_size,resample=Image.BICUBIC)
-    #temp = cv2.resize(im, dsize=origial_size, interpolation=cv2.INTER_CUBIC)
-    #temp = np.clip(temp, 0, 1)
+    
+    temp = cv2.resize(im, dsize=origial_size, interpolation=cv2.INTER_CUBIC)
+    temp = np.clip(temp, 0, 1)
     col3.image(temp, caption='Adversarial Image.', use_column_width=True)
     im = Image.fromarray(np.uint8(im)*255)
     im = im.resize((224,224))
