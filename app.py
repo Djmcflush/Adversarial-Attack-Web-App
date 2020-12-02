@@ -196,7 +196,7 @@ if uploaded_file != None:
             </style>''', unsafe_allow_html=True)
         for col in st.beta_columns(1):
             col.write("Okay so your wondering how this is all working?")
-            st.latex(r'''
+            col.latex(r'''
             adversarial_{image} =  \sin(\triangledown_{input} J(0,input,y_{true}))
              ''')
             col.write("""The attack you just implemented is known as the FGSM attack.
