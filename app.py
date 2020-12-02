@@ -11,7 +11,7 @@ import random
 import torch.nn.functional as F
 from torch.autograd import Variable
 import numpy as np
-import cv2
+
 mean=[0.485, 0.456, 0.406]
 std=[0.229, 0.224, 0.225]
 
@@ -155,9 +155,10 @@ if uploaded_file != None:
     first_idx = idx
     
         
- 
-    temp = cv2.resize(im, dsize=origial_size, interpolation=cv2.INTER_CUBIC)
-    temp = np.clip(temp, 0, 1)
+    temp = Image.fromarray(np.uint8(im)*255)
+    temp = im.resize((224,224))
+    #temp = cv2.resize(im, dsize=origial_size, interpolation=cv2.INTER_CUBIC)
+    #temp = np.clip(temp, 0, 1)
     col3.image(temp, caption='Adversarial Image.', use_column_width=True)
     im = Image.fromarray(np.uint8(im)*255)
     im = im.resize((224,224))
