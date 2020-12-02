@@ -5,9 +5,15 @@
 Streamlit powered web application demonstrating adversarial attacks on ImageNet images
 
 ## How to run this demo
+https://share.streamlit.io/djmcflush/adversarial-attack-web-app/main/app.py
+
+OR
+
 ```
-pip install --upgrade streamlit opencv-python
-streamlit run https://raw.githubusercontent.com/djmcflush/Adversarial-Attack-Web-App/master/app.py
+git clone https://github.com/djmcflush/Adversarial-Attack-Web-App.git
+cd Adversarial-Attack-Web-App
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
 Questions? Comments?
