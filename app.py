@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image,ImageFilter
-
+import tensorflow as tf
 import torchvision.transforms as transforms
 from torchvision import *
 from torch import *
@@ -15,7 +15,6 @@ import cv2
 
 mean=[0.485, 0.456, 0.406]
 std=[0.229, 0.224, 0.225]
-
 def Adversarial(image, y_true, model):
     epsilons = [0.03, .05]
     examples = []
@@ -42,6 +41,25 @@ def Adversarial(image, y_true, model):
     random_img = examples[rand_idx]
     random_x_grad = xgrads[rand_idx]
     return random_img, random_x_grad
+
+def AdverarialTraining():
+    imagenet_data = torchvision.datasets.ImageNet('path/to/imagenet_root/')
+    data_loader = torch.utils.data.DataLoader(imagenet_data,
+                                              batch_size=4,
+                                              shuffle=True,
+                                              num_workers=args.nThreads)
+    model = tf.keras.applications.ResNet50(
+    include_top=True,
+    weights="imagenet",
+    input_tensor=None,
+    input_shape=None,
+    pooling=None,
+    classes=1000,
+    **kwargs
+)
+    
+    
+    
 def postprocess(x_grad, x_adv):
     x_grad = x_grad.squeeze(0).numpy()
     x_grad = np.moveaxis(x_grad, 0,2)
