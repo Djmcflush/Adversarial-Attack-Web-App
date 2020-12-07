@@ -43,19 +43,9 @@ def Adversarial(image, y_true, model):
     return random_img, random_x_grad
 
 def AdverarialTraining():
-    imagenet_data = torchvision.datasets.ImageNet('path/to/imagenet_root/')
-    data_loader = torch.utils.data.DataLoader(imagenet_data,
-                                              batch_size=4,
-                                              shuffle=True,
-                                              num_workers=args.nThreads)
-    model = tf.keras.applications.ResNet50(
-    include_top=True,
-    weights="imagenet",
-    input_tensor=None,
-    input_shape=None,
-    pooling=None,
-    classes=1000,
-    **kwargs
+    #load in adverssarial network
+    model = model.load()
+    return model
 )
     
     
