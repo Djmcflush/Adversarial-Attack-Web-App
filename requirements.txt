@@ -4,3 +4,4 @@ numpy==1.19.1
 torch==1.3.0
 Pillow==8.0.1
 streamlit==0.71.0
+gdown
