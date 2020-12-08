@@ -232,18 +232,18 @@ if uploaded_file != None:
              actually targeting any particular label but instead ensuring that the model 
              doesnt predict the true label. """)
             col.write("https://www.mdpi.com/2079-9292/9/8/1284/htm")
-    with st.beta_container():
-        for col in st.beta_columns(1):
-            col.write("Results After Adversarial Training")
-            adv_model = AdverarialTraining()
-            pred  = adv_model.forward(im)
-            proba,idx = torch.max(torch.sigmoid(pred),dim = 1)
-            proba = proba.detach().numpy()[0]
-            idx = idx.numpy()[0]
-            pred_label = label_oracle.label(idx)
-            label_str = pred_label.split(',')
-            for x in label_str:
-                col.text(x)
-            col.write('confidence {:0.3f}'.format(float(proba)))
-            col.image()
-            col.image(temp, caption='After Adversarial training', use_column_width=True)
+    #with st.beta_container():
+        #for col in st.beta_columns(1):
+            #col.write("Results After Adversarial Training")
+            #adv_model = AdverarialTraining()
+            #pred  = adv_model.forward(im)
+            #proba,idx = torch.max(torch.sigmoid(pred),dim = 1)
+            #proba = proba.detach().numpy()[0]
+            #idx = idx.numpy()[0]
+            #pred_label = label_oracle.label(idx)
+            #label_str = pred_label.split(',')
+            #for x in label_str:
+            #    col.text(x)
+            #col.write('confidence {:0.3f}'.format(float(proba)))
+            #col.image()
+            #col.image(temp, caption='After Adversarial training', use_column_width=True)
