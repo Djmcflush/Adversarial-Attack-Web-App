@@ -4,7 +4,6 @@ import numpy as np
 import os
 from PIL import Image,ImageFilter
 
-import streamlit as st
 import torch
 from torchvision import *
 
@@ -69,7 +68,6 @@ class Densenet169(ImageClassificationBase):
       return self.pretrained_model(x)
 
 class Resnet(ImageClassificationBase):
-    @st.cache(suppress_st_warning=True)  # 👈 Changed this
     def __init__(self):
       super().__init__()
       self.pretrained_model = models.resnet50(pretrained = True)
