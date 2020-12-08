@@ -47,7 +47,7 @@ def Adversarial(image, y_true, model):
 def AdverarialTraining():
     #load in adverssarial network
     save_dest = Path('model')
-    save_dest.mkdir(exist_ok=True)
+    save_dest.mkdir(parents=True,exist_ok=True)
     f_checkpoint = Path("model/resnet50.pt")
     if not f_checkpoint.exists():
         url = "https://drive.google.com/file/d/1YYNy3djfxl3hHaFARsSUqhjnwxliA5Gv/"
