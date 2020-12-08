@@ -12,6 +12,7 @@ from torch.autograd import Variable
 import numpy as np
 import cv2
 import os
+import gdown
 
 mean=[0.485, 0.456, 0.406]
 std=[0.229, 0.224, 0.225]
@@ -42,14 +43,20 @@ def Adversarial(image, y_true, model):
     random_x_grad = xgrads[rand_idx]
     return random_img, random_x_grad
 
+@st.cache
 def AdverarialTraining():
     #load in adverssarial network
-    print(os.listdir())
-    #model = model.load()
-    return #model
-
+    ave_dest = Path('model')
+    save_dest.mkdir(exist_ok=True)
+    f_checkpoint = Path("model/resnet50.pt")
+    if not f_checkpoint.exists():
+        url = "https://drive.google.com/file/d/1YYNy3djfxl3hHaFARsSUqhjnwxliA5Gv/"
+        with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
+                 gdown.download(url, f_checkpoint, quiet=False)
     
-    
+    model = torch.load(f_checkpoint, map_location=device)
+    model.eval()
+    return model   
     
 def postprocess(x_grad, x_adv):
     x_grad = x_grad.squeeze(0).numpy()
@@ -222,5 +229,15 @@ if uploaded_file != None:
     with st.beta_container():
         for col in st.beta_columns(1):
             col.write("Results After Adversarial Training")
-            AdverarialTraining()
-            #col.image()
+            adv_model = AdverarialTraining()
+            pred  = adv_model.forward(im)
+            proba,idx = torch.max(torch.sigmoid(pred),dim = 1)
+            proba = proba.detach().numpy()[0]
+            idx = idx.numpy()[0]
+            pred_label = label_oracle.label(idx)
+            label_str = pred_label.split(',')
+            for x in label_str:
+                col.text(x)
+            col.write('confidence {:0.3f}'.format(float(proba)))
+            col.image()
+            col.image(temp, caption='After Adversarial training', use_column_width=True)
