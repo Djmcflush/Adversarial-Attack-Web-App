@@ -48,7 +48,7 @@ def AdverarialTraining():
     print(os.listdir())
     #model = model.load()
     return #model
-)
+
     
     
     
