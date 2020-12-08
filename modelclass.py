@@ -74,6 +74,5 @@ class Resnet(ImageClassificationBase):
       
       #feature_in = self.pretrained_model.classifier.in_features
       #self.pretrained_model.classifier = nn.Linear(feature_in,2)
-    @st.cache(suppress_st_warning=True)  # 👈 Changed this
     def forward(self,x):
       return self.pretrained_model(x)
