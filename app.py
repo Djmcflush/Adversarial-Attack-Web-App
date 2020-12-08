@@ -57,7 +57,10 @@ def AdverarialTraining():
     if not os.path.exists(f_checkpoint):
         url = "https://drive.google.com/file/d/1YYNy3djfxl3hHaFARsSUqhjnwxliA5Gv/"
         with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
-                 gdown.download(url, f_checkpoint, quiet=False)
+            gdown.download(url, f_checkpoint, quiet=False)
+            with gzip.open('test.pklz', 'rb') as ifp:
+            print(pickle.load(ifp))
+
     
     model = torch.load(f_checkpoint, map_location=device)
     model.eval()
