@@ -13,7 +13,7 @@ import numpy as np
 import cv2
 import os
 import gdown
-
+from pathlib import Path
 mean=[0.485, 0.456, 0.406]
 std=[0.229, 0.224, 0.225]
 def Adversarial(image, y_true, model):
@@ -46,7 +46,7 @@ def Adversarial(image, y_true, model):
 @st.cache
 def AdverarialTraining():
     #load in adverssarial network
-    ave_dest = Path('model')
+    save_dest = Path('model')
     save_dest.mkdir(exist_ok=True)
     f_checkpoint = Path("model/resnet50.pt")
     if not f_checkpoint.exists():
