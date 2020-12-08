@@ -12,6 +12,7 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import numpy as np
 import cv2
+import os
 
 mean=[0.485, 0.456, 0.406]
 std=[0.229, 0.224, 0.225]
@@ -44,8 +45,9 @@ def Adversarial(image, y_true, model):
 
 def AdverarialTraining():
     #load in adverssarial network
-    model = model.load()
-    return model
+    print(os.listdir())
+    #model = model.load()
+    return #model
 )
     
     
@@ -221,4 +223,5 @@ if uploaded_file != None:
     with st.beta_container():
         for col in st.beta_columns(1):
             col.write("Results After Adversarial Training")
+            AdverarialTraining()
             #col.image()
