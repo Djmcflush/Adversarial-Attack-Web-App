@@ -133,7 +133,7 @@ if button:
 Reset = st.button('Upload Your own Image')
 if Reset :
     uploaded_file = st.file_uploader("Choose an Image!",type = file_type)
-    button = False
+    
     
 if uploaded_file != None:
 
