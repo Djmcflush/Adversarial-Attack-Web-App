@@ -46,10 +46,15 @@ def Adversarial(image, y_true, model):
 @st.cache
 def AdverarialTraining():
     #load in adverssarial network
-    save_dest = Path('model')
-    save_dest.mkdir(parents=True,exist_ok=True)
-    f_checkpoint = Path("model/resnet50.pt")
-    if not f_checkpoint.exists():
+    base = os.getcwd()
+    save_dest = os.path.join(base, 'model')
+    if os.path.exists(save_dest):
+        pass
+    else:
+        os.mkdir(save_dest) 
+    f_checkpoint = os.path.join(save_dest,"resnet50.pt")
+    
+    if not os.path.exists(f_checkpoint):
         url = "https://drive.google.com/file/d/1YYNy3djfxl3hHaFARsSUqhjnwxliA5Gv/"
         with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
                  gdown.download(url, f_checkpoint, quiet=False)
