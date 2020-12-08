@@ -128,10 +128,7 @@ file_type = 'jpg'
 button = st.button('Use Default Image')
 if button:
     uploaded_file = 'Ways-To-Keep-Your-Parrot-Happy-And-Healthy.jpg'
-
-
-Reset = st.button('Upload Your own Image')
-if Reset :
+else:
     uploaded_file = st.file_uploader("Choose an Image!",type = file_type)
     
     
