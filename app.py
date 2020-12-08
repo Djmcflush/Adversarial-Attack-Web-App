@@ -58,7 +58,7 @@ def AdverarialTraining():
         url = "https://drive.google.com/file/d/1YYNy3djfxl3hHaFARsSUqhjnwxliA5Gv/"
         with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
             gdown.download(url, f_checkpoint, quiet=False)
-    print(os.listdir(f_checkpoint))
+    print(os.listdir(save_dest))
     
     model = torch.load(f_checkpoint, map_location=device)
     model.eval()
