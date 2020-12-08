@@ -59,7 +59,7 @@ def AdverarialTraining():
         with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
             gdown.download(url, f_checkpoint, quiet=False)
             with gzip.open(f_checkpoint, 'rb') as ifp:
-            print(pickle.load(ifp))
+                print(pickle.load(ifp))
 
     
     model = torch.load(f_checkpoint, map_location=device)
