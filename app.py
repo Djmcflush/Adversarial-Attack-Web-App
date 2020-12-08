@@ -125,8 +125,11 @@ col3.header("Adversarial")
 
 file_type = 'jpg'
 
-
-uploaded_file = st.file_uploader("Choose an Image!",type = file_type)
+button = st.button('Use Default Image')
+if button:
+    uploaded_file = 'Ways-To-Keep-Your-Parrot-Happy-And-Healthy.jpg'
+else: 
+    uploaded_file = st.file_uploader("Choose an Image!",type = file_type)
 
 
 if uploaded_file != None:
