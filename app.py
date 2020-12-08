@@ -126,7 +126,7 @@ col3.header("Adversarial")
 file_type = 'jpg'
 slider = st.select_slider('Slide to select', options=['Default','Upload Your own'])
 radio = st.radio('Radio', [1,2,3])
-select = st.selectbox('Select', [1,2,3])
+s = st.selectbox('Select', [1,2,3])
 if slider == "Default":
     uploaded_file = 'Ways-To-Keep-Your-Parrot-Happy-And-Healthy.jpg'
 else:
