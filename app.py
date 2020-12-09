@@ -237,7 +237,8 @@ if uploaded_file != None:
              actually targeting any particular label but instead ensuring that the model 
              doesnt predict the true label. """)
             col.write("https://www.mdpi.com/2079-9292/9/8/1284/htm")
-    caching.clear_cache()
+   
+    st.caching.clear_cache()
     #with st.beta_container():
         #for col in st.beta_columns(1):
             #col.write("Results After Adversarial Training")
