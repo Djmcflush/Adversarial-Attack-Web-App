@@ -235,7 +235,7 @@ if uploaded_file != None:
     reset = st.button('Reset')
     if reset:
         st.caching.clear_cache()
-        raise str.rerun()
+        st.rerun()
     
     st.caching.clear_cache()
     #with st.beta_container():
