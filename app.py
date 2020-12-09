@@ -234,9 +234,8 @@ if uploaded_file != None:
             col.write("https://www.mdpi.com/2079-9292/9/8/1284/htm")
     reset = st.button('Reset')
     if reset:
-        st.caching.clear_cache()
         st.rerun()
-    
+
     st.caching.clear_cache()
     #with st.beta_container():
         #for col in st.beta_columns(1):
