@@ -108,9 +108,14 @@ resnet.eval()
 latest_iteration = st.empty()
 bar = st.progress(0)
 
+for i in range(100):
+  # Update the progress bar with each iteration.
+  latest_iteration.text(f'Iteration {i+1}')
+  bar.progress(i + 1)
+  time.sleep(0.001)
 
-
-st.text('CWINS LAB - HOWARD UNIVERSITY')
+'Resnet50 loaded!'
+st.text('Resnet50 loaded')
 
 col1, col2, col3 = st.beta_columns(3)
 col1.header("Original")
@@ -232,11 +237,6 @@ if uploaded_file != None:
              actually targeting any particular label but instead ensuring that the model 
              doesnt predict the true label. """)
             col.write("https://www.mdpi.com/2079-9292/9/8/1284/htm")
-    reset = st.button('Reset')
-    if reset:
-        st.rerun()
-
-    st.caching.clear_cache()
     #with st.beta_container():
         #for col in st.beta_columns(1):
             #col.write("Results After Adversarial Training")
