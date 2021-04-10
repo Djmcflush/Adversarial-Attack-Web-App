@@ -5,8 +5,9 @@
 Streamlit powered web application demonstrating adversarial attacks on ImageNet images
 
 ## How to run this demo
-https://share.streamlit.io/djmcflush/adversarial-attack-web-app/main/app.py
-
+```
+Open the Ipython Notebook
+```
 OR
 
 ```
